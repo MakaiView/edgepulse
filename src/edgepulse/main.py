@@ -1,8 +1,6 @@
 import typer
 
-app = typer.Typer(
-    help="EdgePulse - Raspberry Pi status and health agent."
-)
+app = typer.Typer(help="EdgePulse - Raspberry Pi status and health agent.")
 
 
 @app.command()

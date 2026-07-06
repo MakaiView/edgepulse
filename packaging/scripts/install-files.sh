@@ -24,4 +24,7 @@ if [[ ! -f /etc/edgepulse/config.yaml ]]; then
   cp "${REPO_ROOT}/config/config.yaml" /etc/edgepulse/config.yaml
 fi
 
+install -m 0755 "${REPO_ROOT}/packaging/scripts/edgepulse" /usr/local/bin/edgepulse
+install -m 0755 "${REPO_ROOT}/packaging/scripts/edgepulsed" /usr/local/bin/edgepulsed
+
 echo "Application files installed."

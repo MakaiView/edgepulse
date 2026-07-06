@@ -1,0 +1,15 @@
+[Unit]
+Description=EdgePulse Health and Indicator Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/edgepulsed
+Restart=on-failure
+RestartSec=5
+User=root
+WorkingDirectory=/opt/edgepulse
+
+[Install]
+WantedBy=multi-user.target

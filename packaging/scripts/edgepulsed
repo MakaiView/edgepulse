@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PYTHONPATH="/opt/edgepulse:${PYTHONPATH:-}"
+exec /usr/bin/python3 -m edgepulse daemon "$@"

@@ -1,0 +1,14 @@
+# EdgePulse Configuration
+
+driver:
+  type: mock
+
+indicator:
+  profile: single-green
+
+gpio:
+  pin: 18
+
+demo:
+  startup_delay: 5
+  status_duration: 2

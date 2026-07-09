@@ -8,7 +8,7 @@ import yaml
 class Config:
     """EdgePulse configuration."""
 
-    def __init__(self, filename: str = "config/config.yaml") -> None:
+    def __init__(self, filename: str = "/etc/edgepulse/config.yaml") -> None:
         self.path = Path(filename)
 
         with self.path.open("r", encoding="utf-8") as file:

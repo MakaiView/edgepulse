@@ -11,12 +11,13 @@ class DriverFactory:
     @staticmethod
     def create(config: Config) -> Driver:
         match config.driver:
-
             case "mock":
                 return MockDriver()
 
             case "gpio":
-                raise NotImplementedError("GPIO driver has not been implemented yet.")
+                from edgepulse.drivers.gpio import GPIODriver
+
+                return GPIODriver(pin=config.gpio_pin)
 
             case _:
                 raise ValueError(f"Unknown driver type '{config.driver}'")

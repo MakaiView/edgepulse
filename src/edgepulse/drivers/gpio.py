@@ -13,7 +13,9 @@ class GPIODriver(Driver):
 
     def __init__(self, pin: int) -> None:
         self._pin = pin
+
         self._chip = lgpio.gpiochip_open(0)
+
         self._stop_event = threading.Event()
         self._thread: threading.Thread | None = None
 
@@ -31,8 +33,6 @@ class GPIODriver(Driver):
         self._start_animation(self._blink_loop, on_time, off_time)
 
     def breathe(self) -> None:
-        # Basic breathe placeholder for v0.0.1-alpha.
-        # True PWM fade comes later.
         self.blink(0.75, 0.75)
 
     def cleanup(self) -> None:
@@ -42,13 +42,8 @@ class GPIODriver(Driver):
 
     def _start_animation(self, target, *args: float) -> None:
         self._stop_animation()
-
         self._stop_event.clear()
-        self._thread = threading.Thread(
-            target=target,
-            args=args,
-            daemon=True,
-        )
+        self._thread = threading.Thread(target=target, args=args, daemon=True)
         self._thread.start()
 
     def _stop_animation(self) -> None:
